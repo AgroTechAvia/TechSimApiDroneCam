@@ -27,16 +27,17 @@ def tracking_aruco():
             distance_to_marker = errors [0]['pose']['position']['z']
             pitch_error = distance_to_marker - distance
             roll_error = errors[0]['pose']['position']['x']
-            yaw_error = -1 * errors[0]['pose']['orientation']['z']
+            yaw_error = -errors[0]['pose']['orientation']['z']
             print(f"Дистанция до маркера: {distance_to_marker}")
 
             aruco_regulation (pitch_error, roll_error, yaw_error)
         else:
             aruco_regulation (pitch_error, roll_error, 0)
             print (f"Маркер потерян! Поиск:")
-            print (f"pitch_error = {pitch_error}, roll_error = {roll_error}")
+            print (f"pitch_error = {pitch_error}, \
+                   roll_error = {roll_error}")
 
-        time.sleep(0.1)
+        time.sleep(0.03)
 
 # Выравнивание относительно маркера
 def aruco_regulation(pitch_error, roll_error, yaw_error):
@@ -44,8 +45,9 @@ def aruco_regulation(pitch_error, roll_error, yaw_error):
     PID_pitch = constrain (PID_pitch, 0.4)
     PID_roll = roll_error * 0.25
     PID_roll = constrain (PID_roll, 0.4)
-    PID_yaw = constrain (-yaw_error, 0.5)
-    print(f"PID_pitch={PID_pitch}, PID_roll={PID_roll}, PID_yaw={PID_yaw}")
+    PID_yaw = constrain (yaw_error, 0.5)
+    print(f"PID_pitch={PID_pitch}, PID_roll={PID_roll}, \
+          PID_yaw={PID_yaw}")
     client.setVelXYYaw(PID_pitch, PID_roll, PID_yaw)
 
 # Функция ограничения величины
