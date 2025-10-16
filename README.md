@@ -38,7 +38,7 @@ git submodule update --init --recursive
 
 
 ```bash
-pip3 install -e drone_control_api --break-system-packages
+pip3 install -e /path/to/TechSimApiDroneCam
 ```
 
 
