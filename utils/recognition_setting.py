@@ -21,8 +21,8 @@ distance_coefficients = np.array([k1, k2, p1, p2, 0], dtype=np.float32)
 marker_size = 0.5
 
 #aruco.getPredefinedDictionary(aruco.DICT_4X4_50) # для новой комнаты
-#aruco.DICT_ARUCO_ORIGINAL  # для 1 комнаты из обычного симулятора 
+#aruco.getPredefinedDictionary(aruco.DICT_ARUCO_ORIGINAL)  # для 1 комнаты из обычного симулятора 
 
-aruco_dictionary = aruco.getPredefinedDictionary(dict = aruco.DICT_ARUCO_ORIGINAL)
+aruco_dictionary = aruco.getPredefinedDictionary(aruco.DICT_4X4_50)
 
 detector_parameters = aruco.DetectorParameters() 

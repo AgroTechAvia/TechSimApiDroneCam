@@ -18,18 +18,15 @@ def process_blob(img):
     min_area=100    
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     color_ranges = {
-        '0': [   #red
-            (np.array([0, 120, 70]), np.array([10, 255, 255])),
-            (np.array([170, 120, 70]), np.array([180, 255, 255]))
-        ],
-        '1': [   #green
-            (np.array([35, 40, 40]), np.array([65, 255, 255])),
-            (np.array([65, 40, 40]), np.array([85, 255, 255]))
-        ],
-        '2': [   #blue
-            (np.array([90, 100, 60]), np.array([110, 255, 255])),
-            (np.array([110, 100, 60]), np.array([130, 255, 255]))
-        ]
+    '0': [   # red
+        (np.array([0, 80, 100]), np.array([0, 255, 255]))
+    ],
+    '1': [   # green
+        (np.array([30, 60, 200]), np.array([45, 130, 255])),  
+    ],
+    '2': [   # blue  
+        (np.array([95, 100, 80]), np.array([115, 255, 200])),  
+    ]
     }
     
     blobs = []  
