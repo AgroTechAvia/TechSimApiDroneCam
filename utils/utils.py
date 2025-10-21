@@ -4,7 +4,7 @@ from typing import Callable
 
 
 def sim_to_api_distance(distance):
-    return distance * 100
+    return distance * 1
 
 def vel_to_rc_signal(vel):
     return 1500 + vel * 100
