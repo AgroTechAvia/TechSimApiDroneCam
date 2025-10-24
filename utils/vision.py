@@ -131,7 +131,7 @@ def process_aruco(img):
                         'orientation': {
                             'x': float(orientation_data[0]),
                             'y': float(orientation_data[1]), 
-                            'z': float(orientation_data[2])
+                            'z': -1 * float(orientation_data[2])
                         }
                     }
                 })
