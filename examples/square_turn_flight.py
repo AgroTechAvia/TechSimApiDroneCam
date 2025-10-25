@@ -12,33 +12,36 @@ def main():
 
     client = Drone()
 
+     # подключение
     client.connect(ip, port)
-    
+    # включаем моторы
     client.armDrone()
 
     time.sleep(2.0)
-
+    # включаем пежим удержания позиции
     client.posholdOn()
 
     time.sleep(2.0)
-
-    client.takeoff()   
-
+    # взлет
+    client.takeoff()
+   
     time.sleep(8)
 
-    client.gotoXYdrone(3, 0)
+    # полет вперед на 2 метра вперед
+    client.gotoXYdrone(2, 0)
 
-    client.setYaw(-1.57)
+    # поворот на 90 градусов влево
+    client.setYaw(-1.57) # еденица измерения в радианах
 
-    client.gotoXYdrone(3, 0)
+    client.gotoXYdrone(2, 0)
 
     client.setYaw(3.14)
     
-    client.gotoXYdrone(3, 0)
+    client.gotoXYdrone(2, 0)
 
     client.setYaw(1.57)
     
-    client.gotoXYdrone(3, 0)
+    client.gotoXYdrone(2, 0)
 
     client.setYaw(0)
 
